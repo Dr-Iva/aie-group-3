@@ -45,6 +45,13 @@ def report(
             help="Заголовок отчёта (по умолчанию 'EDA Report')",
         ),
     ] = "EDA Report",
+    min_missing_share: Annotated[
+        float,
+        typer.Option(
+            "--min-missing-share",
+            help="Минимальная доля пропусков для включения в отчёт (по умолчанию 0.05)",
+        ),
+    ] = 0.05,
 ):
     print(f"Читаю {input_path}...")
     df = pd.read_csv(input_path)
@@ -75,6 +82,7 @@ def report(
     report_lines.append(f"- Есть постоянные столбцы: {quality_flags['has_constant_columns']}")
     report_lines.append(f"- Есть столбцы с >90% нулей: {quality_flags['has_many_zero_values']}")
     report_lines.append(f"- Макс. гистограмм: {max_hist_columns}")
+    report_lines.append(f"- Мин. доля пропусков для отчёта: {min_missing_share:.2%}")
     report_lines.append("")
 
     print("Генерирую визуализации...")
