@@ -45,6 +45,9 @@ uv run eda-cli report data/example.csv --out-dir reports
 `--out-dir` – папка для сохранения отчёта (по умолчанию reports);
 `--max-hist-columns` – максимальное количество числовых столбцов для гистограмм (по умолчанию 6);
 `--title` – заголовок отчёта (по умолчанию 'EDA Report').
+`--max-hist-columns` – максимальное количество числовых столбцов для гистограмм (по умолчанию 6);
+`--title` – заголовок отчёта (по умолчанию 'EDA Report');
+`--min-missing-share` – минимальная доля пропусков для включения в отчёт (по умолчанию 0.05).
 
 В результате в каталоге `reports/` появятся:
 
@@ -56,6 +59,9 @@ uv run eda-cli report data/example.csv --out-dir reports
 - `hist_*.png` – гистограммы числовых колонок;
 - `missing_matrix.png` – визуализация пропусков;
 - `correlation_heatmap.png` – тепловая карта корреляций.
+-`hist_*.png` – гистограммы числовых колонок;
+-`missing_matrix.png` – визуализация пропусков;
+-`correlation_heatmap.png` – тепловая карта корреляций.
 
 ## Тесты
 
