@@ -1,0 +1,50 @@
+{
+    "dataset_size": 3000,
+    "n_features": 15,
+    "class_distribution": {
+        "class_0": 1769,
+        "class_1": 1231,
+        "percent_0": 58.96666666666667,
+        "percent_1": 41.03333333333333
+    },
+    "train_test_split": {
+        "train_size": 2250,
+        "test_size": 750,
+        "test_ratio": 0.25,
+        "random_state": 42,
+        "stratify": true
+    },
+    "baseline_model": {
+        "type": "DummyClassifier",
+        "strategy": "most_frequent",
+        "accuracy": 0.5893333333333334
+    },
+    "logistic_regression": {
+        "pipeline": [
+            "StandardScaler",
+            "LogisticRegression"
+        ],
+        "best_params": {
+            "C": 1.0
+        },
+        "metrics": {
+            "accuracy": 0.7933333333333333,
+            "roc_auc": 0.8647088205911735,
+            "precision": 0.7802197802197802,
+            "recall": 0.6915584415584416,
+            "f1_score": 0.7332185886402753
+        }
+    },
+    "comparison": {
+        "accuracy_improvement": 0.20399999999999996,
+        "accuracy_improvement_percent": 34.615384615384606,
+        "roc_auc_improvement": 0.3647088205911735
+    },
+    "top_features": [
+        "debt_to_income",
+        "num_late_payments",
+        "credit_score",
+        "region_risk_score",
+        "active_loans"
+    ]
+}

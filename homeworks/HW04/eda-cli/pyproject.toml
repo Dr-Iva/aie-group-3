@@ -1,22 +1,26 @@
-[build-system]
-requires = ["setuptools >= 77.0.3"]
-build-backend = "setuptools.build_meta"
-
 [project]
-name = "s03"
+name = "eda-cli"
 version = "0.1.0"
-description = "Add your description here"
+description = "CLI tool for exploratory data analysis of CSV files"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi>=0.126.0",
-    "matplotlib>=3.10.7",
-    "pandas>=2.3.3",
-    "pytest>=9.0.1",
-    "python-multipart>=0.0.21",
-    "typer>=0.20.0",
-    "uvicorn[standard]>=0.40.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+    "typer>=0.9.0",
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "python-multipart>=0.0.6",
 ]
 
 [project.scripts]
 eda-cli = "eda_cli.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+]
