@@ -1,13 +1,10 @@
 {
-    "model_name": "GradientBoosting",
-    "metrics": {
-        "accuracy": 0.856,
-        "f1": 0.8519,
-        "roc_auc": 0.9215
+    "best_model_name": "Stacking",
+    "best_model_label": "Stacking",
+    "test_metrics": {
+        "accuracy": 0.854,
+        "f1": 0.8501,
+        "roc_auc": 0.9199
     },
-    "params": {
-        "learning_rate": 0.2,
-        "max_depth": 5,
-        "n_estimators": 200
-    }
+    "random_state": 42
 }

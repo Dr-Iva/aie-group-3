@@ -1,5 +1,1 @@
-{
-    "ds1": "DBSCAN",
-    "ds2": "KMeans",
-    "ds4": "KMeans"
-}
+{"ds1": {"method": "KMeans", "k": 2}, "ds2": {"method": "KMeans", "k": 2}, "ds4": {"method": "KMeans", "k": 5}}

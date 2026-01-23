@@ -1,32 +1,39 @@
 {
-    "Dummy": {
-        "accuracy": 0.508,
-        "f1": 0.0,
-        "roc_auc": 0.5
+    "meta": {
+        "dataset": "S06-hw-dataset-02.csv",
+        "timestamp": "2026-01-23T20:58:31.180374",
+        "best_model": "Stacking"
     },
-    "LogReg": {
-        "accuracy": 0.74,
-        "f1": 0.7325,
-        "roc_auc": 0.8259
-    },
-    "DecisionTree": {
-        "accuracy": 0.754,
-        "f1": 0.7389,
-        "roc_auc": 0.8152
-    },
-    "RandomForest": {
-        "accuracy": 0.854,
-        "f1": 0.8501,
-        "roc_auc": 0.9165
-    },
-    "GradientBoosting": {
-        "accuracy": 0.856,
-        "f1": 0.8519,
-        "roc_auc": 0.9215
-    },
-    "Stacking": {
-        "accuracy": 0.862,
-        "f1": 0.8571,
-        "roc_auc": 0.9202
+    "metrics": {
+        "Dummy": {
+            "accuracy": 0.508,
+            "f1": 0.0,
+            "roc_auc": 0.5
+        },
+        "LogisticRegression": {
+            "accuracy": 0.74,
+            "f1": 0.7325,
+            "roc_auc": 0.8259
+        },
+        "DecisionTree": {
+            "accuracy": 0.738,
+            "f1": 0.7288,
+            "roc_auc": 0.8121
+        },
+        "RandomForest": {
+            "accuracy": 0.854,
+            "f1": 0.8501,
+            "roc_auc": 0.9165
+        },
+        "Boosting": {
+            "accuracy": 0.834,
+            "f1": 0.8289,
+            "roc_auc": 0.9138
+        },
+        "Stacking": {
+            "accuracy": 0.854,
+            "f1": 0.8501,
+            "roc_auc": 0.9199
+        }
     }
 }

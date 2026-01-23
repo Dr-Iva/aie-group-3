@@ -6,42 +6,30 @@
 ## 1. Dataset
 
 -	Какой датасет выбран: S06-hw-dataset-02.csv
--	Размер: 2000 строк, 21 столбец (20 признаков + 1 целевая).
+-	Размер: 2000 объектов, 37 признаков (включая синтетические взаимодействия).
 -	Целевая переменная: target Бинарная классификация (классы 0 и 1). Баланс классов примерно 50/50 (сбалансированный).
--	Признаки: Все признаки числовые( float64). Категориальных признаков и пропусков нет. Датасет имеет искусственную природу с нелинейными зависимостями и добавленным шумом.
+-	Признаки: Включают 35 числовых признаков (f01-f35) и 2 интеркаляционных признака (x_int_1, x_int_2). Все данные числовые.
 
 ## 2. Protocol
 
--	Разбиение: Train/Test в соотношении 75/25 (test_size=0.25).
--	Использована стратификация (stratify=y) для сохранения баланса классов.
--	random_state=42 для воспроизводимости.
--	Подбор: 
--	Метод: GridSearchCV на Train выборке.
--	Кросс-валидация: StratifiedKFold на 5 фолдов.
--	Оптимизируемая метрика: roc_auc.
--	Метрики:
--	ROC-AUC: Основная метрика для оценки разделяющей способности модели независимо от порога.
--	F1-Score: Для оценки баланса Precision и Recall.
--	Accuracy: Для общей оценки доли правильных ответов (так как классы сбалансированы).
+-	Разбиение: Сплит 75/25 (train/test) с фиксацией random_state=42 и stratify=y.
+-	Подбор: Использовался GridSearchCV с кросс-валидацией на 5 фолдов (StratifiedKFold). Подбор параметров осуществлялся только на обучающей выборке.
+-	Метрики:Accuracy, F1 и ROC-AUC. ROC-AUC выбран как основной критерий качества, так как он оценивает предсказательные способности модели независимо от порога классификации.
 
 ## 3. Models
 
 В эксперименте сравнивались следующие модели:
-DummyClassifier (Baseline):
-Стратегия: most_frequent (всегда предсказывает мажоритарный класс).
-LogisticRegression (Linear Baseline):Использована в Pipeline с StandardScaler.Параметры по умолчанию.
-DecisionTreeClassifier: Одиночное дерево. 
-Подбирались параметры для контроля сложности и предотвращения переобучения:
-- max_depth: [None, 5, 10, 15]; min_samples_leaf: [1, 5, 10, 20]; ccp_alpha: [0.0, 0.001, 0.01] (Cost-Complexity Pruning).
-RandomForestClassifier (Bagging):Ансамбль независимых деревьев. 
-Подбирались:
-- n_estimators: [100, 200]; max_depth: [None, 10, 20]; max_features: ['sqrt', 'log2']
-GradientBoostingClassifier (Boosting):Последовательное построение деревьев. 
-Подбирались:
-- n_estimators: [100, 200]; learning_rate: [0.01, 0.1, 0.2]; max_depth: [3, 5]
-StackingClassifier (Optional):
-Мета-модель: LogisticRegression.
-Базовые модели: Лучшие найденные экземпляры RF, GB и DT.
+- DummyClassifier (Baseline): Стратегия most_frequent.
+
+- LogisticRegression (Baseline): Использован StandardScaler для нормализации признаков.
+
+- DecisionTreeClassifier: Применен контроль сложности для предотвращения переобучения. Подбирались: max_depth, min_samples_leaf (не менее 1, 5, 20) и ccp_alpha (стрижка).
+
+- RandomForestClassifier: Ансамбль (Bagging). Подбирались n_estimators и max_depth.
+
+- GradientBoostingClassifier (Boosting): Последовательный ансамбль. Подбирались learning_rate и n_estimators.
+
+- StackingClassifier: Композиция из лучших моделей RandomForest и Boosting с мета-моделью LogisticRegression.
 
 ## 4. Results
 Ниже приведены результаты на отложенной тестовой выборке (X_test, y_test).
@@ -52,7 +40,7 @@ DecisionTree	0.8120	0.8050	0.8250
 RandomForest	0.8850	0.8810	0.9420
 GradientBoosting	0.8950	0.8920	0.9510
 Stacking	0.8940	0.8910	0.9505
-Победитель: GradientBoostingClassifier. Модель показала наивысший ROC-AUC (0.951). Бустинг эффективнее всего справился с выделением сложной границы классов, последовательно исправляя ошибки простых деревьев.
+Победитель: Boosting (GradientBoostingClassifier). Модель показала лучший результат по ROC-AUC (0.9510), что говорит о её высокой способности разделять классы на данном наборе данных.
 
 ## 5. Analysis
 
