@@ -1,10 +1,8 @@
 {
-    "best_model_name": "Stacking",
-    "best_model_label": "Stacking",
-    "test_metrics": {
-        "accuracy": 0.854,
-        "f1": 0.8501,
-        "roc_auc": 0.9199
-    },
-    "random_state": 42
+  "best_model": "RandomForest",
+  "test_metrics": {
+    "accuracy": 0.854,
+    "f1": 0.8501,
+    "roc_auc": 0.9165
+  }
 }

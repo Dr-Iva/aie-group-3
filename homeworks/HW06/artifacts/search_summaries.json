@@ -1,15 +1,16 @@
 {
-    "DecisionTree": {
-        "ccp_alpha": 0.001,
-        "max_depth": null,
-        "min_samples_leaf": 20
-    },
-    "RandomForest": {
-        "max_depth": null,
-        "n_estimators": 200
-    },
-    "Boosting": {
-        "learning_rate": 0.1,
-        "n_estimators": 200
-    }
+  "DecisionTree": {
+    "ccp_alpha": 0.001,
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "min_samples_split": 2
+  },
+  "RandomForest": {
+    "max_depth": null,
+    "n_estimators": 200
+  },
+  "Boosting": {
+    "learning_rate": 0.1,
+    "n_estimators": 200
+  }
 }
