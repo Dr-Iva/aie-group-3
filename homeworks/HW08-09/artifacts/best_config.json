@@ -1,0 +1,22 @@
+{
+  "dataset": "KMNIST",
+  "seed": 42,
+  "model_architecture": {
+    "hidden_sizes": [
+      256,
+      128
+    ],
+    "activation": "ReLU",
+    "dropout": 0.0,
+    "batch_norm": true
+  },
+  "training": {
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "batch_size": 64,
+    "early_stopping_patience": 3,
+    "max_epochs": 20,
+    "actual_epochs": 14
+  },
+  "best_val_accuracy": 0.8519503546099291
+}
