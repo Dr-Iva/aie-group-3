@@ -1,5 +1,5 @@
 {
-  "dataset": "KMNIST",
+  "dataset": "EMNIST",
   "seed": 42,
   "model_architecture": {
     "hidden_sizes": [
