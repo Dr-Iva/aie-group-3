@@ -1,0 +1,3 @@
+query,before_retrieved_sources,after_retrieved_sources,changed
+Что максимизирует агент? | В чем суть механизма Self-Attention?,"ml_01,ml_08,ml_06","ml_11,ml_11,ml_11",True
+Что максимизирует агент? | В чем суть механизма Self-Attention?,"ml_01,ml_05,ml_06","ml_12,ml_01,ml_05",True
