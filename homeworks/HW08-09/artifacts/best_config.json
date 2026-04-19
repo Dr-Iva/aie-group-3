@@ -1,22 +1,30 @@
 {
-  "dataset": "EMNIST",
+  "dataset": "EMNIST Balanced",
   "seed": 42,
   "model_architecture": {
+    "input_size": 784,
     "hidden_sizes": [
       256,
       128
     ],
+    "num_classes": 47,
     "activation": "ReLU",
     "dropout": 0.0,
     "batch_norm": true
   },
-  "training": {
+  "training_hyperparameters": {
+    "loss_function": "CrossEntropyLoss",
     "optimizer": "Adam",
-    "lr": 0.001,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "momentum": 0.0,
     "batch_size": 64,
-    "early_stopping_patience": 3,
     "max_epochs": 20,
-    "actual_epochs": 14
+    "early_stopping_patience": 3,
+    "actual_epochs_trained": 14
   },
-  "best_val_accuracy": 0.8519503546099291
+  "results": {
+    "best_val_accuracy": 0.8519503546099291,
+    "best_val_loss": 0.44941926856412956
+  }
 }

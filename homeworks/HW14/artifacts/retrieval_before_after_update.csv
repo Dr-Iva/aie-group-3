@@ -1,3 +1,5 @@
 query,before_retrieved_sources,after_retrieved_sources,changed
-Что максимизирует агент? | В чем суть механизма Self-Attention?,"ml_01,ml_08,ml_06","ml_11,ml_11,ml_11",True
-Что максимизирует агент? | В чем суть механизма Self-Attention?,"ml_01,ml_05,ml_06","ml_12,ml_01,ml_05",True
+Что максимизирует агент?,"ml_01,ml_08,ml_06","ml_11,ml_11,ml_11",True
+В чем суть механизма Self-Attention?,"ml_01,ml_05,ml_06","ml_12,ml_01,ml_05",True
+Что такое обучение с подкреплением?,"ml_01,ml_02,ml_07","ml_11,ml_01,ml_02",True
+Какая архитектура стала основой для GPT?,"ml_03,ml_05,ml_01","ml_12,ml_12,ml_03",True
