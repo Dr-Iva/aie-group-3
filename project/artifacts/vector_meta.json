@@ -1,0 +1,6 @@
+{
+  "backend": "sentence_transformers",
+  "model_name": "intfloat/multilingual-e5-small",
+  "dimension": 384,
+  "chunk_count": 2819
+}
